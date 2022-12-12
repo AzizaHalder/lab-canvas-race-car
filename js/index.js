@@ -7,7 +7,7 @@ class Game {
   }
 
   startGame() {
-    console.log("Strating");
+    console.log("Starting");
     // accessing canvas
     const canvas = document.getElementById("canvas");
 
@@ -36,10 +36,12 @@ class Game {
     this.ctx.drawImage(
       this.player.img,
       this.player.posX,
+
       this.player.posY,
       this.player.width,
       this.player.height
     );
+    // console.log(this.player.posX, "here");
   }
 
   updateCanvas() {
@@ -62,7 +64,7 @@ class Car {
     this.posY = posY;
     this.img = this.createCar();
   }
-  // mehtod to create car img
+  // method to create car img
   createCar() {
     const car = new Image();
 
@@ -73,12 +75,12 @@ class Car {
 
   moveRight() {
     // moving right
-    this.posX += 10;
+    if (this.posX < 445) this.posX += 10;
   }
 
   moveLeft() {
     // moving left
-    this.posX -= 10;
+    if (this.posX > 0) this.posX -= 10;
   }
 
   // creating move method that receives argument
